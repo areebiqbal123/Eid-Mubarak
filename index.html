@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak | Areeb Iqbal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --soft-gold: #ffec8b;
+            --midnight: #010409;
+            --deep-blue: #0a192f;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            background-color: var(--midnight);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- CSS STARS --- */
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, var(--deep-blue) 0%, var(--midnight) 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* --- CSS ONLY MOON --- */
+        .moon-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .moon-shape {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 18px 18px 0 0 var(--gold);
+            transform: rotate(-20deg);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 3px 3px 10px #000;
+            letter-spacing: 6px;
+        }
+
+        /* --- WISHES & DUA --- */
+        .wishes-section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wish-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--soft-gold);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 4px solid var(--gold);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 15px 15px 0;
+            text-align: left;
+            backdrop-filter: blur(5px);
+        }
+
+        .dua-request {
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px dashed var(--gold);
+            border-radius: 20px;
+            background: rgba(255, 215, 0, 0.05);
+            font-size: 1.2rem;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* --- BANK DETAILS --- */
+        .container {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .bank-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            position: relative;
+        }
+
+        .card-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 5px;
+            display: block;
+        }
+
+        .label { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; display: block; }
+        .value { font-size: 1.05rem; color: var(--white); font-weight: 600; display: block; }
+
+        .copy-btn {
+            float: right;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+
+        /* --- FORM --- */
+        .wish-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 30px;
+            max-width: 600px;
+            margin: 40px auto 100px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 18px;
+            color: white;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .send-btn {
+            background: var(--gold);
+            color: #000;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container" id="starField"></div>
+
+    <section class="hero">
+        <div class="moon-container"><div class="moon-shape"></div></div>
+        <h1>Eid Mubarak</h1>
+        <p style="letter-spacing: 5px; color: var(--gold);">FROM AREEB IQBAL</p>
+    </section>
+
+    <div class="wishes-section">
+        <div class="wish-quote">"May the blessings of Allah fill your life with happiness and open all the doors of success now and always. Eid Mubarak!"</div>
+        <div class="wish-quote">"Wishing you a beautiful Eid filled with love, laughter, and a heart full of gratitude. Have a blessed day!"</div>
+        <div class="wish-quote">"On this auspicious occasion, may your prayers be answered and your sacrifices be appreciated by the Almighty. Happy Eid!"</div>
+        
+        <div class="dua-request">
+            🌙 <b>A Humble Request:</b> <br>
+            Please remember me in your special prayers today. Also, let us all make a sincere Dua for the safety, peace, and prosperity of Muslims all over the world. May Allah alleviate the hardships of the Ummah. Ameen.
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="font-family: 'Cinzel'; color: var(--gold); margin-bottom: 40px;">Eidi Details</h2>
+        
+        <div class="bank-grid">
+            <div class="bank-card">
+                <button class="copy-btn" onclick="copyText('01860108462624')">Copy</button>
+                <span class="card-heading">Meezan Bank</span>
+                <span class="label">Account Title</span><span class="value">Areeb Iqbal</span>
+                <span class="label">Account Number</span><span class="value">01860108462624</span>
+            </div>
+
+            <div class="bank-card">
+                <button class="copy-btn" onclick="copyText('3554475000011521')">Copy</button>
+                <span class="card-heading">Faysal Bank</span>
+                <span class="label">Account Title</span><span class="value">Areeb Iqbal</span>
+                <span class="label">Account Number</span><span class="value">3554475000011521</span>
+            </div>
+
+            <div class="bank-card">
+                <button class="copy-btn" onclick="copyText('03362842234')">Copy</button>
+                <span class="card-heading">EasyPaisa / Raast</span>
+                <span class="label">Account Title</span><span class="value">Areeb Iqbal</span>
+                <span class="label">Mobile Number</span><span class="value">0336 2842234</span>
+            </div>
+        </div>
+
+        <div class="wish-form">
+            <h2 style="font-family: 'Cinzel'; color: var(--gold); margin-bottom: 20px;">Send a Wish</h2>
+            <input type="text" id="userName" placeholder="Your Name">
+            <textarea id="userMsg" rows="3" placeholder="Write your Eid wish..."></textarea>
+            <button class="send-btn" onclick="sendWish()">Send Wish ✨</button>
+        </div>
+    </div>
+
+    <script>
+        const starField = document.getElementById('starField');
+        for (let i = 0; i < 120; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 'px';
+            star.style.width = size; star.style.height = size;
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            starField.appendChild(star);
+        }
+
+        function copyText(val) {
+            navigator.clipboard.writeText(val);
+            alert("Copied to clipboard!");
+        }
+
+        function sendWish() {
+            const phone = "923362842234";
+            const name = document.getElementById('userName').value;
+            const msg = document.getElementById('userMsg').value;
+            if(!name || !msg) { alert("Please fill both fields!"); return; }
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent("Eid Mubarak Areeb!\n\nFrom: "+name+"\nMessage: "+msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
